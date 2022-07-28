@@ -103,10 +103,33 @@
 
 
 
+    <div class="row ">
+        <div class="col-1">
+            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#tambah-seragam">
+                <i class="fa-solid fa-circle-plus"></i>
+            </button>
+        </div>
+        <div class="col-1">
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Filter Ukuran
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ url('seragam/filtukuranS') }}" name="uk_s">S</a></li>
+                    <li><a class="dropdown-item" href="{{ url('seragam/filtukuranM') }}" name="uk_m">M</a></li>
+                    <li><a class="dropdown-item" href="{{ url('seragam/filtukuranL') }}" name="uk_l">L</a></li>
+                    <li><a class="dropdown-item" href="{{ url('seragam/filtukuranXL') }}" name="uk_xl">XL</a></li>
 
-    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#tambah-seragam">
-        Tambah Data
-    </button>
+                </ul>
+                
+              </div>
+              
+              
+        </div>
+        
+    </div>
+
+      
 
     <form class="d-flex"  method="GET"  action="{{ url('seragam/search') }}"  role="search" >
         <input class="form-control me-2" type="search" name="search"   placeholder="Search" aria-label="Search">
@@ -117,9 +140,23 @@
         <thead>
           <tr>
             <th>no</th>
-            <th>nama</th>
-            <th>harga</th>
-            <th>ukuran</th>
+            <th>
+                <span>nama 
+                    <a href="{{ url('/seragam/sort/ascNama') }}" name="nama"><i class="fa fa-arrow-up"></i></a>
+                <a href="{{ url('/seragam/sort/descNama') }}" name="nama"><i class="fa fa-arrow-down"></i></a>
+            </span>
+        </th>
+            <th><span>
+                harga
+                <a href="{{ url('/seragam/sort/ascHarga') }}" name="harga"><i class="fa fa-arrow-up"></i></a>
+                <a href="{{ url('/seragam/sort/descHarga') }}" name="harga"><i class="fa fa-arrow-down"></i></a>
+            </span></th>
+            <th><span>
+                ukuran
+                <a href="{{ url('/seragam/sort/ascUkuran') }}" name="ukuran"><i class="fa fa-arrow-up"></i></a>
+                    <a href="{{ url('/seragam/sort/descUkuran') }}" name="ukuran"><i class="fa fa-arrow-down"></i></a>    
+            </span>
+        </th>
             <th>Aksi</th>
           </tr>
         </thead>

@@ -119,6 +119,47 @@ class SeragamController extends Controller
                         return view('seragam.index' , compact('datas'));
     }   
 
+
+    public function sortASCnama(Request $request) {
+        $datas = Seragam::orderBy('nama' , 'asc')->get();
+
+        return view('seragam.index' , compact('datas'));
+    }
+
+    public function sortDESCnama(Request $request) {
+        $datas = Seragam::orderBy('nama' , 'desc')->get();
+
+        return view('seragam.index' , compact('datas'));
+    }
+
+    //sort harga
+    public function sortASCharga(Request $request) {
+        $datas = Seragam::orderBy('harga' , 'asc')->get();
+
+        return view('seragam.index' , compact('datas'));
+    }
+
+    public function sortDESCharga(Request $request) {
+        $datas = Seragam::orderBy('harga' , 'desc')->get();
+
+        return view('seragam.index' , compact('datas'));
+    }
+
+    //sort ukuran
+    public function sortASCukuran(Request $request) {
+        $datas = Seragam::orderBy('ukuran' , 'asc')->get();
+
+        return view('seragam.index' , compact('datas'));
+    }
+
+    public function sortDESCukuran(Request $request) {
+        $datas = Seragam::orderBy('ukuran' , 'desc')->get();
+
+        return view('seragam.index' , compact('datas'));
+    }
+
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -131,5 +172,46 @@ class SeragamController extends Controller
         $datas->delete();
 
         return redirect()->back();
+    }
+
+
+    public function filterUkuranS (Request $request) {
+        if($request->uk_s ==null){
+            $request->uk_s = 's';
+            $req = $request->uk_s;
+            $datas = Seragam::where('ukuran' , 'like' , $req)->get();
+        }
+
+        return view('seragam.index' , compact('datas'));
+    }
+
+    public function filterUkuranM (Request $request) {
+        if($request->uk_m ==null){
+            $request->uk_m = 'm';
+            $req = $request->uk_m;
+            $datas = Seragam::where('ukuran' , 'like' , $req)->get();
+        }
+
+        return view('seragam.index' , compact('datas'));
+    }
+
+    public function filterUkuranL (Request $request) {
+        if($request->uk_l ==null){
+            $request->uk_l = 'l';
+            $req = $request->uk_l;
+            $datas = Seragam::where('ukuran' , 'like' , $req)->get();
+        }
+
+        return view('seragam.index' , compact('datas'));
+    }
+
+    public function filterUkuranXL (Request $request) {
+        if($request->uk_xl ==null){
+            $request->uk_xl = 'xl';
+            $req = $request->uk_xl;
+            $datas = Seragam::where('ukuran' , 'like' , $req)->get();
+        }
+
+        return view('seragam.index' , compact('datas'));
     }
 }

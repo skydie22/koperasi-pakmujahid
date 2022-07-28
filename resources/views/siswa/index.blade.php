@@ -122,14 +122,28 @@
         <thead>
           <tr>
             <th scope="col">no</th>
-            <th scope="col">nis</th>
-            <th>nama 
-                <span class="float-right text-sm">
-                    <i class="fa fa-arrow-up"></i>
-                    <i class="fa fa-arrow-down"></i>
+            <th scope="col">
+                <span>
+                    nis
+                    <a href="{{ url('/siswa/sort/ascNis') }}" name="nis"><i class="fa fa-arrow-up"></i></a>
+                    <a href="{{ url('/siswa/sort/descNis') }}" name="nis"><i class="fa fa-arrow-down"></i></a>
+            </span>
+        </th>
+            <th> 
+                <span>
+                    nama
+                <a href="{{ url('/siswa/sort/ascNama') }}" name="nama"><i class="fa fa-arrow-up"></i></a>
+                <a href="{{ url('/siswa/sort/descNama') }}" name="nama"><i class="fa fa-arrow-down"></i></a>
+
+                    
                 </span>
             </th>
-            <th scope="col">kelas</th>
+            <th scope="col"><span>
+                kelas
+                <a href="{{ url('/siswa/sort/ascKelas') }}" name="kelas"><i class="fa fa-arrow-up"></i></a>
+                <a href="{{ url('/siswa/sort/descKelas') }}" name="kelas"><i class="fa fa-arrow-down"></i></a>        
+            </span>
+        </th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>

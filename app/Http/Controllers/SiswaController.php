@@ -118,7 +118,46 @@ class SiswaController extends Controller
                         ->get();
 
                         return view('siswa.index' , compact('datas'));
-    }   
+    }
+    
+    //sort nama
+    public function sortASCnama(Request $request) {
+        $datas = Siswa::orderBy('nama' , 'asc')->get();
+
+        return view('siswa.index' , compact('datas'));
+    }
+
+    public function sortDESCnama(Request $request) {
+        $datas = Siswa::orderBy('nama' , 'desc')->get();
+
+        return view('siswa.index' , compact('datas'));
+    }
+
+    //sort nis
+    public function sortASCnis(Request $request) {
+        $datas = Siswa::orderBy('nis' , 'asc')->get();
+
+        return view('siswa.index' , compact('datas'));
+    }
+
+    public function sortDESCnis(Request $request) {
+        $datas = Siswa::orderBy('nis' , 'desc')->get();
+
+        return view('siswa.index' , compact('datas'));
+    }
+
+    //sort kelas
+    public function sortASCkelas(Request $request) {
+        $datas = Siswa::orderBy('kelas' , 'asc')->get();
+
+        return view('siswa.index' , compact('datas'));
+    }
+
+    public function sortDESCkelas(Request $request) {
+        $datas = Siswa::orderBy('kelas' , 'desc')->get();
+
+        return view('siswa.index' , compact('datas'));
+    }
 
 
     /**
